@@ -1,5 +1,3 @@
-import random
-import os
 from collections import Counter
 from datetime import datetime
 from flask import Flask, request
@@ -9,7 +7,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:postgres@localhost:5432/wordle"
+USER = 'postgres'
+PASSWORD = 'postgres'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{USER}:{PASSWORD}@localhost:5432/wordle'
 db = SQLAlchemy(app)
 
 MAX_TRIES = 6
